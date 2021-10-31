@@ -1,0 +1,8 @@
+@mixin media($device) {
+    @if $device==tablet {
+        @media screen and (min-width: 768px) {@content};
+    } 
+    @if $device==laptop {
+        @media screen and (min-width: 1200px) {@content};
+    } 
+}
