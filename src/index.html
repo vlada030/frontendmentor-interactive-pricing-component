@@ -10,17 +10,44 @@
 </head>
 <body>
   <div class="container">
-    
+    <div class="wrapper">
+        <header class="header">
+            <h2>simple, traffic-based pricing</h2>
+            <p>Sign-up for our 30-day trial. No credit card required.</p>
+        </header>
+
+        <main class="main">
+          <div class="price-wrapper">
+            <h4>100k pageviews</h4>
+            <h3>$16.00 <span>/ month</span></h3>
+          </div>
+          <form action="#" class="form">
+            <input class="form__slider" type="range" id="priceSlider" min="0" max="6" value="3">
+
+            <h3 class="form__price">$16.00 <span>/ month</span></h3>
+
+            <div class="form__billing">
+              <p class="text">Monthly Billing</p>
+              <div class="toggler">
+                <div></div>
+              </div>
+              <p class="text">Yearly Billing</p>
+              <p class="discount">-25%</p>
+            </div>
+
+          </form>
+        </main>
+    </div>
   </div>
 <template>
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+  
+   
 
   Pageviews
   $ /month
 
-  Monthly Billing
-  Yearly Billing 25% discount
+  
+   25% discount
 
   Unlimited websites
   100% data ownership
