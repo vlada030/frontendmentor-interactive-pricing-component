@@ -145,12 +145,15 @@
                 background: transparent;
 
                 margin-bottom: 24px;
-
+                
                 @include media(tablet) {
                     margin-bottom: 40px;
                 }
-
+                
+                
+                
                 &::-webkit-slider-runnable-track {
+                    appearance: none;
                     width: 100%;
                     height: 8px;
                     border-radius: 5px;
@@ -162,6 +165,7 @@
                 }
 
                 &::-moz-range-track {
+                    appearance: none;
                     width: 100%;
                     height: 8px;
                     border-radius: 5px;
@@ -173,6 +177,7 @@
                 }
 
                 &::-ms-track {
+                    appearance: none;
                     width: 100%;
                     height: 8px;
                     border-radius: 5px;
@@ -184,6 +189,7 @@
                 }
 
                 &::-webkit-slider-thumb {
+                    appearance: none;
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
@@ -195,13 +201,28 @@
                     box-shadow: 0px 15px 30px 0px rgba($colorPrimarySix, 0.6);
                     cursor: pointer;
                     transition: $transition;
+                    transform: translateY(-50%);
+                    
                 }
 
                 &:hover::-webkit-slider-thumb {
                     background: $colorPrimaryOne;
+                    background: url("../images/icon-slider.svg"),
+                        $colorPrimaryOne;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                &:focus::-webkit-slider-thumb {
+                    background: $colorPrimaryOne;
+                    background: url("../images/icon-slider.svg"),
+                        $colorPrimarySeven;
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
 
                 &::-moz-range-thumb {
+                    appearance: none;
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
@@ -233,6 +254,7 @@
                 }
 
                 &::-ms-thumb {
+                    appearance: none;
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
@@ -245,6 +267,22 @@
 
                     cursor: pointer;
                     transition: $transition;
+                }
+
+                &:hover::-ms-thumb {
+                    background: $colorPrimaryOne;
+                    background: url("../images/icon-slider.svg"),
+                        $colorPrimaryOne;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                &:focus::-ms-thumb {
+                    background: $colorPrimaryOne;
+                    background: url("../images/icon-slider.svg"),
+                        $colorPrimarySeven;
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
             }
 
