@@ -25,12 +25,13 @@ function dynamicSliderWidthClass() {
     if (styleList.length > 2) {
         styleList[2].parentNode.removeChild(styleList[2])
     }    
-    console.log(sliderValue);
     // dodaj style element u head
     let width = (sliderValue - 1) / 4 * 100 // u procentima
-console.log(width);
     var style = document.createElement("style");
-    style.innerHTML = `.dynamic-width::-moz-range-track {  background: linear-gradient(90deg, hsl(174, 77%, 80%) ${width}%, hsl(224, 65%, 95%) ${width+1}%) !important; }`;
+    style.innerHTML = `.dynamic-width::-moz-range-track {  background: linear-gradient(90deg, hsl(174, 77%, 80%) ${width}%, hsl(224, 65%, 95%) ${width+1}%) !important; }
+    .dynamic-width::-webkit-slider-runnable-track {  background: linear-gradient(90deg, hsl(174, 77%, 80%) ${width}%, hsl(224, 65%, 95%) ${width+1}%) !important; }
+    .dynamic-width::-ms-thumb {  background: linear-gradient(90deg, hsl(174, 77%, 80%) ${width}%, hsl(224, 65%, 95%) ${width+1}%) !important; }`;
+
     head.appendChild(style);
 
     subscriptionSlider.classList.add('dynamic-width')
@@ -72,7 +73,7 @@ const initializeComponent = () => {
 
 initializeComponent();
 
-subscriptionSlider.addEventListener("change", () => {
+subscriptionSlider.addEventListener("input", () => {
     const { plan, discount } = prepareValues();
     updateUI(plan, discount);
 });
