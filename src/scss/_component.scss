@@ -145,13 +145,11 @@
                 background: transparent;
 
                 margin-bottom: 24px;
-                
+
                 @include media(tablet) {
                     margin-bottom: 40px;
                 }
-                
-                
-                
+
                 &::-webkit-slider-runnable-track {
                     appearance: none;
                     width: 100%;
@@ -180,6 +178,7 @@
                     appearance: none;
                     width: 100%;
                     height: 8px;
+                    border: 0;
                     border-radius: 5px;
                     background: linear-gradient(
                         90deg,
@@ -202,7 +201,6 @@
                     cursor: pointer;
                     transition: $transition;
                     transform: translateY(-40%);
-                    
                 }
 
                 &:hover::-webkit-slider-thumb {
@@ -348,55 +346,61 @@
                 }
 
                 .checkbox-container {
-                    height: 22px;
+                    display: inline-block;
                     width: 43px;
-                    cursor: pointer;
-                    margin-right: 12px;
-
+                    height: 22px;
                     position: relative;
+                    margin-right: 12px;
 
                     @include media(tablet) {
                         margin-right: 16px;
                     }
 
-                    .checkbox {
+                    input {
+                        // stari nacin
+                        // opacity: 0;
+                        // width: 0;
+                        // height: 0;
+
                         /* Add if not using autoprefixer */
                         appearance: none;
                         /* For iOS < 15 to remove gradient background */
                         background-color: #fff;
-                        /* Not removed via appearance */
-                        margin: 0;
-                        height: 22px;
-                        width: 43px;
+                    }
+
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
                         background-color: $colorNeutralFour;
                         border-radius: 15px;
-
                         transition: $transition;
-                        cursor: pointer;
 
-                        &:checked {
+                        &:hover {
                             background-color: $colorPrimaryOne;
-
                         }
                     }
 
-                    &:hover > .checkbox {
+                    .slider::before {
+                        content: "";
+                        position: absolute;
+                        width: 14px;
+                        height: 14px;
+                        left: 4px;
+                        bottom: 4px;
+                        background-color: $colorNeutralTwo;
+                        border-radius: 50%;
+                        transition: $transition;
+                    }
+
+                    input:checked + .slider {
                         background-color: $colorPrimaryOne;
                     }
 
-                    label {
-                        position: absolute;
-                        top: 4px;
-                        left: 4px;
-                        background-color: $colorNeutralTwo;
-                        border-radius: 50%;
-                        width: 14px;
-                        height: 14px;
-                        transition: $transition;
-                        cursor: pointer;
-                    }
-
-                    .checkbox:checked + label {
+                    input:checked + .slider::before {
                         left: 25px;
                     }
                 }
